@@ -35,12 +35,6 @@ var timeBlocks = [
     event: ''},  
 ]
 
-//display visuals for the schdule
-// timeBlocks.forEach(function(givenHour) {
-//     var timeBlockRow = $('<form>').attr({'class' : 'row'})
-//     $('.container')
-// })
-
 
 for (let i = 0; i < timeBlocks.length; i++) {
     let indexBlock = timeBlocks[i];
@@ -50,35 +44,19 @@ for (let i = 0; i < timeBlocks.length; i++) {
     //creates hour display
     var hourDisplay = $('<div>').text(indexBlock.time).attr({'class':'col-md-2 time'})
     
-    //creating the textholder 
-    var eventDiv = $('<div>').attr({'class' : 'col-md-9 event-txt'})
-    var textInfo = $('<textarea>').attr({'id' : indexBlock.id});
-    eventDiv.append(textInfo)
+    //creates the textholder 
+    //var eventDiv = $('<div>').attr({'class' : 'col-md-9 event-txt'})
+    var textInfo = $('<textarea>').attr({'id' : indexBlock.id, 'class':'col-md-9 event-txt'});
+    // eventDiv.append(textInfo)
+
+    //creates the save button
+    var saveRow = $("<i class='far fa-save fa-md'></i>");
+    var saveBtn = $('<button>').attr({'class' : 'col-md-1 saveBtn'});
+    saveBtn.append(saveRow)
+
     //append to row to container
     $('.container').append(timeBlockRow)
     //append to row created
-    timeBlockRow.append(hourDisplay, eventDiv)
+    timeBlockRow.append(hourDisplay, textInfo, saveBtn)
     
 }
-//     // let plan = timeBlocks[i]; 
-//     // //creates the timeblock row
-//     // var timeRow =$("<form>").attr({
-//     //     "class": "row"
-//     // });
-//     // $("container").append(timeRow)
-
-//     // //creates the display time row
-//     // var hourRowDisplay = $('<div>').text('${plan.time}').attr({"class": "col-md-2 hour"})
-    
-//     // //creates the text
-//     // var eventRow = $('<div>')
-//     // var textData = $("<textarea>");
-//     // eventRow.append(textData);
-//     // eventRow.attr("id", plan.id)
-
-//     // //creates the savebutton
-//     // var saveBtn = $("<i class='far fa-save fa-md'></i>")
-//     // var saveRow = $("<button>").attr({"class": "col-md-1 savebtn"});
-//     // saveRow.append(saveBtn);
-//     // var completeRow = timeRow.append(hourRowDisplay, eventRow, saveRow)
-//     // $("container").append(completeRow)
