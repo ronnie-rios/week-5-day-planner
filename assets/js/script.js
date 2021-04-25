@@ -4,36 +4,6 @@ function displayCurrentDate() {
     $('#currentDay').text(currentDate)
 }
 displayCurrentDate();
-//an array for the timeblocks
-var timeBlocks = [
-    {id: 0,
-    time: '9:00 AM',
-    event: ''},
-    {id: 1,
-    time: '10:00 AM',
-    event: ''},
-    {id: 2,
-    time: '11:00 AM',
-    event: ''},
-    {id: 3,
-    time: '12:00 PM',
-    event: ''},
-    {id: 4,
-    time: '1:00 PM',
-    event: ''},
-    {id: 5,
-    time: '2:00 PM',
-    event: ''},
-    {id: 6,
-    time: '3:00 PM',
-    event: ''},
-    {id: 7,
-    time: '4:00 PM',
-    event: ''},
-    {id: 8,
-    time: '5:00 PM',
-    event: ''},  
-]
 
 function createElements() {
 for (let i = 0; i < timeBlocks.length; i++) {
@@ -62,9 +32,11 @@ for (let i = 0; i < timeBlocks.length; i++) {
     }
 
 }
+var currentHour = moment().hour();
+console.log(currentHour)
+
+// compareTime();
 //function to save to local storage
-
-
 function saveStorage() {
    let userInput = $(this).siblings('.event-txt').val() 
    var localStorageKey = $(this).siblings('.time').text()
@@ -73,11 +45,26 @@ function saveStorage() {
 }
 
 function displayStorage() {
+    //displays local storage for time and places in div
    var nineText = localStorage.getItem("9:00 AM")
     $('.9-text').text(nineText)
+    var tenText = localStorage.getItem("10:00 AM")
+    $('.10-text').text(tenText)
+    var elevenText = localStorage.getItem("11:00 AM")
+    $('.11-text').text(elevenText)
+    var twelveText = localStorage.getItem("12:00 PM")
+    $('.12-text').text(twelveText)
+    var thirteenText = localStorage.getItem("1:00 PM")
+    $('.13-text').text(thirteenText)
+    var fourteenText = localStorage.getItem("2:00 PM")
+    $('.14-text').text(fourteenText)
+    var fifteenText = localStorage.getItem("3:00 PM")
+    $('.15-text').text(fifteenText)
+    var sixteenText = localStorage.getItem("4:00 PM")
+    $('.16-text').text(sixteenText)
+    var fifteenText = localStorage.getItem("5:00 PM")
+    $('.17-text').text(fifteenText)
 }
 displayStorage();
 
 $('.saveBtn').on('click', saveStorage);
-
-// createElements();
