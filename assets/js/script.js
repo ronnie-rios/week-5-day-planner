@@ -1,9 +1,9 @@
 //displays current time
-function displayCurrentTime() {
+function displayCurrentDate() {
     var currentDate = moment().format('dddd, MMMM Do');
     $('#currentDay').text(currentDate)
 }
-displayCurrentTime();
+displayCurrentDate();
 //an array for the timeblocks
 var timeBlocks = [
     {id: 0,
@@ -35,7 +35,7 @@ var timeBlocks = [
     event: ''},  
 ]
 
-
+function createElements() {
 for (let i = 0; i < timeBlocks.length; i++) {
     let indexBlock = timeBlocks[i];
     //creates row to hold hour, event, save button
@@ -57,6 +57,30 @@ for (let i = 0; i < timeBlocks.length; i++) {
     //append to row to container
     $('.container').append(timeBlockRow)
     //append to row created
-    timeBlockRow.append(hourDisplay, textInfo, saveBtn)
-    
+    timeBlockRow.append(hourDisplay, textInfo, saveBtn)      
+   
+    }
+
+
 }
+//function to save to local storage
+
+var savedEvents = [];
+function saveStorage() {
+    var saveText = document.querySelector('.event-txt').value
+    savedEvents.push(saveText)
+    localStorage.setItem("event", JSON.stringify(savedEvents))
+}
+
+createElements();
+
+
+$('.saveBtn').on('click', saveStorage);
+//if statement
+// if (timeBlocks.time < moment().hour()) {
+//     textInfo.attr({'class' : 'future'});
+// } else if (timeBlocks.time == moment().hour()) {
+//     textInfo.attr({'class' : 'present'})
+// } else {
+//     textInfo.attr({'class' : 'past'}) 
+// } 
