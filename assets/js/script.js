@@ -5,37 +5,6 @@ function displayCurrentDate() {
 }
 displayCurrentDate();
 
-function createElements() {
-for (let i = 0; i < timeBlocks.length; i++) {
-    let indexBlock = timeBlocks[i];
-    //creates row to hold hour, event, save button
-    var timeBlockRow = $('<form>').attr({'class': 'row'})
-
-    //creates hour display
-    var hourDisplay = $('<div>').text(indexBlock.time).attr({'class':'col-md-2 time'})
-    
-    //creates the textholder 
-    //var eventDiv = $('<div>').attr({'class' : 'col-md-9 event-txt'})
-    var textInfo = $('<textarea>').attr({'id' : indexBlock.id, 'class':'col-md-9 event-txt'});
-    // eventDiv.append(textInfo)
-
-    //creates the save button
-    var saveRow = $("<i class='far fa-save fa-md'></i>");
-    var saveBtn = $('<button>').attr({'class' : 'col-md-1 saveBtn'});
-    saveBtn.append(saveRow)
-
-    //append to row to container
-    $('.container').append(timeBlockRow)
-    //append to row created
-    timeBlockRow.append(hourDisplay, textInfo, saveBtn)      
-   
-    }
-
-}
-var currentHour = moment().hour();
-console.log(currentHour)
-
-// compareTime();
 //function to save to local storage
 function saveStorage() {
    let userInput = $(this).siblings('.event-txt').val() 
@@ -45,7 +14,9 @@ function saveStorage() {
 }
 
 function displayStorage() {
-    //displays local storage for time and places in div
+//    localStorage.setItem(localStorageKey)
+   
+    // displays local storage for time and places in div
    var nineText = localStorage.getItem("9:00 AM")
     $('.9-text').text(nineText)
     var tenText = localStorage.getItem("10:00 AM")
@@ -66,5 +37,33 @@ function displayStorage() {
     $('.17-text').text(fifteenText)
 }
 displayStorage();
+//compare time code
+// var currentHour = moment().hour();
+// var currentHourInt = parseInt(currentHour)
+// console.log(currentHour)
+// $("#9").attr("data-time", moment("9:00 am", "h:mm a").format("HH"));
+// $("#10").attr("data-time", moment("10:00 am", "h:mm a").format("HH"));
+// $("#11").attr("data-time", moment("11:00 am", "h:mm a").format("HH"));
+// $("#12").attr("data-time", moment("12:00 pm", "h:mm a").format("HH"));
+// $("#13").attr("data-time", moment("1:00 pm", "h:mm a").format("HH"));
+// $("#14").attr("data-time", moment("2:00 pm", "h:mm a").format("HH"));
+// $("#15").attr("data-time", moment("3:00 pm", "h:mm a").format("HH"));
+// $("#16").attr("data-time", moment("4:00 pm", "h:mm a").format("HH"));
+// $("#17").attr("data-time", moment("5:00 pm", "h:mm a").format("HH"));
+
+// function compareTime() {
+//        $('#row').each(function() {
+//         var rowHour = parseInt($(this).attr("data-time"));
+//         console.log(this)
+//         if (currentHourInt > rowHour) {
+//             $(this).addClass('future')
+//         } else if (currentHourInt === rowHour) {
+//             $(this).addClass('present')
+//         } else {
+//             $(this).addClass('past')
+//         }
+//     })
+// }
+// compareTime();
 
 $('.saveBtn').on('click', saveStorage);
