@@ -3,7 +3,7 @@ function displayCurrentDate() {
     var currentDate = moment().format('dddd, MMMM Do');
     $('#currentDay').text(currentDate)
 }
-displayCurrentDate();
+// displayCurrentDate();
 //an array for the timeblocks
 var timeBlocks = [
     {id: 0,
@@ -60,22 +60,27 @@ for (let i = 0; i < timeBlocks.length; i++) {
     timeBlockRow.append(hourDisplay, textInfo, saveBtn)      
    
     }
-
+console.log('test2.0')
 
 }
 //function to save to local storage
 
 var savedEvents = [];
 function saveStorage() {
-    var saveText = document.querySelector('.event-txt').value
-    savedEvents.push(saveText)
-    localStorage.setItem("event", JSON.stringify(savedEvents))
+   let userInput = $(this).siblings('.event-txt').val()
+   var localStorageKey = $(this).siblings('.time').text()
+   localStorage.setItem(localStorageKey, userInput)
+    // var saveText = document.querySelector().value
+    // savedEvents.push(saveText)
+    // localStorage.setItem("event", JSON.stringify(savedEvents))
 }
 
-createElements();
 
 
 $('.saveBtn').on('click', saveStorage);
+
+// createElements();
+
 //if statement
 // if (timeBlocks.time < moment().hour()) {
 //     textInfo.attr({'class' : 'future'});
