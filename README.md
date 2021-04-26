@@ -1,7 +1,7 @@
 # Work Day Scheduler 
 
 ## Description
-A simple day planner where once can enter an event and it will save to local storage for a 9 to 5 work day.
+A simple day planner where one can enter an event and it will save to local storage for a 9 to 5 work day.
 
 ## Technologies Used
 * HTML
@@ -20,3 +20,5 @@ Starting code was provided through UT Coding BootCamp and was edited by Ronnie R
 
 ## Links
 [Repository Link](https://github.com/ronnie-rios/week-5-day-planner)
+
+[Link to application](https://ronnie-rios.github.io/week-5-day-planner/)
